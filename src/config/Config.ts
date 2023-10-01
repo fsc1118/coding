@@ -1,4 +1,11 @@
 export const config = {
+    aws: {
+        region: "us-east-2",
+        sqs: {
+            queueURL: "https://sqs.us-east-2.amazonaws.com/390924664773/workerMessage",
+            visibilityTimeout: 10
+        }
+    },
     java: {
         compile: {
             command: "javac",
@@ -11,5 +18,4 @@ export const config = {
             cwd: "src/execute/java"
         }
     },
-}
 }

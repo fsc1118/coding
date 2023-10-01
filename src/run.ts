@@ -1,12 +1,19 @@
-import {
-    get, set
-} from "./cache/cache"
+import ackSQSMessage from "./sqs/ackSQSMessage"
+import getSQSMessage from "./sqs/getSQSMessage"
+import sendSQSMessage from "./sqs/sendSQSMessage"
 
-async function main() {
-    const res = await set("test", "test", 100)
-    console.log(res)
-    const data = await get("test")
-    console.log(data)
+const run = async () => {
+    await sendSQSMessage("Hello world")
+    try {
+        const output = await getSQSMessage()
+
+        console.log(output)
+
+        await ackSQSMessage(output.receiptHandle)
+    } catch (e) {
+        console.log(e)
+    }
+
 }
 
-main()
+run()

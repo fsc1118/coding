@@ -1,0 +1,8 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Create an SQS Queue for async processing
+
+Resources:
+  WorkerMessageQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: workerMessage
