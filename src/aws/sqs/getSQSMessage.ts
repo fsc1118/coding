@@ -1,7 +1,7 @@
 import { ReceiveMessageCommandOutput, SQS } from "@aws-sdk/client-sqs"
-import { config } from "../config/Config"
-import logger from "../logger/logger"
-const getSQSMessage = async (): Promise<{
+import { config } from "../../config/Config"
+import logger from "../../logger/logger"
+const getSQSMessage = (): Promise<{
     message: string,
     messageID: string,
     receiptHandle: string

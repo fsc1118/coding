@@ -1,10 +1,10 @@
 import { SQS } from "@aws-sdk/client-sqs"
-import { config } from "../config/Config"
-import logger from "../logger/logger"
+import { config } from "../../config/Config"
+import logger from "../../logger/logger"
 
-const ackSQSMessage = async (receiptHandle: string): Promise<void> => {
+const ackSQSMessage = (receiptHandle: string): Promise<void> => {
     const sqs = new SQS({ region: config.aws.region })
-    return await new Promise<void>((resolve, reject) => {
+    return new Promise<void>((resolve, reject) => {
         const params = {
             QueueUrl: config.aws.sqs.queueURL,
             ReceiptHandle: receiptHandle

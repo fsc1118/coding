@@ -1,6 +1,6 @@
-import ackSQSMessage from "./sqs/ackSQSMessage"
-import getSQSMessage from "./sqs/getSQSMessage"
-import sendSQSMessage from "./sqs/sendSQSMessage"
+import ackSQSMessage from "./aws/sqs/ackSQSMessage"
+import getSQSMessage from "./aws/sqs/getSQSMessage"
+import sendSQSMessage from "./aws/sqs/sendSQSMessage"
 
 const run = async () => {
     await sendSQSMessage("Hello world")
